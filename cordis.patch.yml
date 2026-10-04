@@ -1,0 +1,11 @@
+# dsh-prompt-editor 的组合包补丁。
+#
+# profile 启动时会按 dsh.profile.bundles 的顺序把每个组合包的 patch 叠起来，本文件
+# 就是这一层：向组合里插入一行，名字是本包名，也就是宿主半边的入口（index.js）。
+#
+# 为什么需要一行宿主插件：客户端的浏览器半边（client.js）靠 dsh-client-modules
+# 扫描「活着的 Loader 行」上的 dsh.client 声明来加载。没有这一行，页面代码就送不到
+# 浏览器里；同时这一行也提供页面读写的那个 HTTP 路由。
+- insert:
+    - id: prompt-editor
+      name: 'dsh-prompt-editor'

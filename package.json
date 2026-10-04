@@ -1,0 +1,45 @@
+{
+  "name": "dsh-prompt-editor",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DSH 插件：在「更多设置」里查看、修改并保存所有 agent 共用的全局系统提示词，保存后立即生效。",
+  "license": "MIT",
+  "author": "AGImentu",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AGImentu/dsh-prompt-editor.git"
+  },
+  "homepage": "https://github.com/AGImentu/dsh-prompt-editor#readme",
+  "bugs": {
+    "url": "https://github.com/AGImentu/dsh-prompt-editor/issues"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "system-prompt",
+    "prompt",
+    "settings"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-renderer"
+      ]
+    }
+  },
+  "meta": {
+    "title": "全局系统提示词",
+    "description": "查看并修改所有 agent 共用的自定义指令段。"
+  }
+}
